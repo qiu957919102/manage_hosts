@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    {% load staticfiles %}
+    {% block totle %}
+    <title>标题</title>
+    {% endblock %}
     {% block styles %}
     {% endblock %}
     <style>
@@ -10,9 +13,9 @@
             margin: 0px;
             padding: 0px;
         }
-
+        html, body { height:100%}
         .nav{
-            line-height: 40px;
+            line-height: 100px;
             width: 100%;
             background-color: #2459a2;
             color: white;
@@ -21,9 +24,11 @@
         }
         .left{
             width: 20%;
-            min-height: 600px;
+            height: 100%;
             overflow: auto;
             background-color: gray;
+            {#margin: 0;#}
+
         }
         .manage{
             text-align: center;
@@ -34,7 +39,7 @@
         }
         .content{
             width: 70%;
-            min-height: 600px;
+            height: 600px;
 
         }
         a{
@@ -50,19 +55,22 @@
 </head>
 <body>
 <div class="outer">
-    <div class="nav">标题</div>
+    <div class="nav">
+    {% block biaoti %}
+        标题
+    {% endblock %}
+    </div>
     <div class="left">
-        <div class="student manage"><a href="/student">学生管理</a></div>
-        <div class="teacher manage"><a href="">老师管理</a></div>
-        <div class="course manage"><a href="">课程管理</a></div>
-        <div class="classes manage"><a href="">班里管理</a></div>
+        {% block left_menu %}
+            <div>11</div>
+        {% endblock %}
     </div>
     <div class="content">
         {% block content%}
-
-        <h1>WELCOME TO LOGIN</h1>
+            <div>222</div>
         {% endblock %}
     </div>
 </div>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 </body>
 </html>
