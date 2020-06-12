@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
+    {% load staticfiles %}
+    <link rel="icon" href="http://jump.dachuizichan.com:81/static/img/facio.ico">
     <link rel="stylesheet" href="/static/bootstrap-3.3/css/login.css">
 </head>
 <body>
@@ -26,7 +28,7 @@
 
 <div class="box">
         <h2>Login</h2>
-    <form action="/login/" method="post">
+    <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <div class="inputbox">
             <p>{{ obj.username }}</p>
