@@ -226,3 +226,7 @@ def delHost(request, nid):
     """
     models.Host.objects.filter(nid=nid).delete()
     return redirect('/host/')
+
+
+def base(request):
+    return render(request,"base.html")
