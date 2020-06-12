@@ -13,8 +13,6 @@
             margin: 0px;
             padding: 0px;
         }
-
-
         .nav{
             line-height: 100px;
             width: 100%;
@@ -23,23 +21,25 @@
             font-size: 20px;
             text-align: center;
         }
+        .box{
+            display: flex;
+        }
         .left{
             width: 20%;
-            height: 974px;
+            height: calc(100vh - 100px);
             overflow: auto;
             background-color: gray;
             margin: 0;
-
         }
         .content{
-            width: 70%;
+           flex:1;
             height: 600px;
 
         }
 
-        .fudong{
-            float: left;
-        }
+        {#.fudong{#}
+        {#    float: left;#}
+        {#}#}
     </style>
 </head>
 <body>
@@ -49,15 +49,17 @@
         标题
     {% endblock %}
     </div>
-    <div class="left fudong">
+    <div class="box">
+        <div class="left fudong">
         {% block left_menu %}
             <div>11</div>
         {% endblock %}
     </div>
     <div class="content fudong">
-        {% block content%}
+        {% block content %}
             <div>222</div>
         {% endblock %}
+    </div>
     </div>
 </div>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
