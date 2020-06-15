@@ -68,7 +68,7 @@ class Application(models.Model):
 class Business(models.Model):
     b_name = models.CharField(max_length=20)
 
-    class Mete:
+    class Meta:
         """
         verbose_name的意思很简单，就是给你的模型类起一个更可读的名字：
         """
