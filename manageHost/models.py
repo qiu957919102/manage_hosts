@@ -12,6 +12,10 @@ class User(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
+        """
+        显示models的用户名
+        :return:
+        """
         return self.username
 
 
@@ -29,6 +33,10 @@ class Host(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
+        """
+        显示models的ip
+        :return:
+        """
         return self.ip
 
 
@@ -41,6 +49,10 @@ class Application(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
+        """
+        显示应用的名字
+        :return:
+        """
         return self.name
 
 
@@ -52,4 +64,8 @@ class Business(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
+        """
+        显示应用的业务线名字
+        :return:
+        """
         return self.b_name
