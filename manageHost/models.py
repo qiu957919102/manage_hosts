@@ -8,6 +8,9 @@ class User(models.Model):
     passwd = models.CharField(max_length=20, verbose_name='password')
 
     class Meta:
+        """
+        verbose_name的意思很简单，就是给你的模型类起一个更可读的名字：
+        """
         verbose_name = '管理员'
         verbose_name_plural = verbose_name
 
@@ -29,6 +32,9 @@ class Host(models.Model):
     # host = models.ManyToManyField('Host')
 
     class Meta:
+        """
+        verbose_name的意思很简单，就是给你的模型类起一个更可读的名字：
+        """
         verbose_name = '主机信息'
         verbose_name_plural = verbose_name
 
@@ -45,6 +51,9 @@ class Application(models.Model):
     name = models.CharField(max_length=20)
 
     class Meta:
+        """
+        verbose_name的意思很简单，就是给你的模型类起一个更可读的名字：
+        """
         verbose_name = '主机应用'
         verbose_name_plural = verbose_name
 
@@ -60,6 +69,9 @@ class Business(models.Model):
     b_name = models.CharField(max_length=20)
 
     class Mete:
+        """
+        verbose_name的意思很简单，就是给你的模型类起一个更可读的名字：
+        """
         verbose_name = '主机所属业务线'
         verbose_name_plural = verbose_name
 
