@@ -23,7 +23,7 @@ urlpatterns = [
     path('register/', views.Register.as_view()),
     path('login/', views.Login.as_view(),name='login'),
     re_path('del-(?P<nid>\d+)/', views.delHost),
-    path('add/', views.addHost.as_view()),
+    path('add/', views.addHost.as_view(),name='add'),
     re_path('edit-(?P<nid>\d+)/', views.EditHost.as_view()),
     re_path('detail-(?P<nid>\d+)/', views.detail),
     path(r'', views.base),
