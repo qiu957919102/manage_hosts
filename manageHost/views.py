@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,reverse,HttpResponse
 from django.views import View
-from . import form, models
+from manageHost import form, models
 from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator, EmptyPage
 # Create your views here.
