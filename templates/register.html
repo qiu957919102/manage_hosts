@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load staticfiles %}
     <title>主机管理系统注册页面</title>
 </head>
 <body>
@@ -14,7 +15,34 @@
     </form>{{ error }}
     {% if new_user %}
         {{ new_user.username }}已注册成功,
-        <a href="/login/">跳转到登录页面</a>
+{#        <a href="/login/">#}
+{##}
+{#            <span id="seconds">5</span>秒后自动跳转到登录页面#}
+{#        </a>#}
+        <span id="seconds">5</span>秒后自动跳转到登录页面
     {% endif %}
+
+    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+    <script>
+        var interval;
+        console.log("Hello Runoob!");
+        $(function () {
+            interval = window.setInterval("changeSecond()", 1000);// 每隔1秒，执行一次changeSecond()方法
+        });
+
+        function changeSecond() {
+            var second = $("#seconds").text();
+            second = second - 1;
+            console.log(second)
+            if (second == 0) {
+                window.clearInterval(interval);
+                console.log(window.location.protocol)
+                console.log(window.location.host)
+                window.location.href = window.location.protocol + "//" + window.location.host + "/login/";
+                return;
+            }
+            $("#seconds").text(second);
+        }
+    </script>
 </body>
 </html>
