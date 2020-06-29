@@ -3,6 +3,7 @@ from django.views import View
 from manageHost import form, models
 from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator, EmptyPage
+import json
 # Create your views here.
 
 
@@ -82,10 +83,18 @@ class Register(View):
         obj = form.FM()
         return render(request, 'register.html', {'obj': obj})
     def post(self, request):
+        response = {"status": True, "message": None, "data": None}
+        # print(request.POST.get("username"))
+        # print(request.POST.get("passwd"))
+        # return HttpResponse("200")
+
         obj = form.FM(request.POST)
+
         if obj.is_valid():
+            # print(obj.changed_data.get('username'),obj.changed_data.get('passwd'))
             new_user = models.User.objects.create(**obj.cleaned_data)
-            return render(request, 'register.html', {'obj': obj, 'new_user': new_user})
+            return HttpResponse("200")
+            # return render(request, 'register.html', {'obj': obj, 'new_user': new_user})
         else:
             error = '用户名或者密码错误'
             return render(request, 'register.html', {'error': error})

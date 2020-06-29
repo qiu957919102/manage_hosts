@@ -56,7 +56,7 @@
 </head>
 <body>
 <div class="modal-dialog_yin" role="document">
-    <div class="modal-content_yin">
+    <div class="modal-content_yin" >
         <div class="modal-header_yin">
             <h4 class="modal-title_yin" id="myModalLabel">注册账户</h4>
         </div>
@@ -72,7 +72,7 @@
                 <div class="form-group">
                     <label for="password" class="col-sm-2 control-label">密码</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control input_yin" name="password" placeholder="密码">
+                        <input type="password" class="form-control input_yin" name="passwd" placeholder="密码">
                     </div>
                 </div>
             </form>
@@ -91,8 +91,35 @@
 <script src="/static/jquery-3.4.1.min.js"></script>
 <script src="/static/bootstrap-3.3/js/bootstrap.js"></script>
 <script>
+    $(function () {
+        bindregister();
+    });
 
+    function bindregister() {
+        var postData = {};
+        $("#btnSave").click(function () {
+            $("#fm").find("input").each(function () {
+                var n = $(this).val();
+                var v = $(this).attr("name");
+                postData[v] = n;
+                console.log(postData);
+            });
+            $.ajax({
+                url: "/register/",
+                type: "POST",
+                data: postData,
+                success: function (arg) {
+                    console.log(arg);
 
+                },
+                error:function(){
+					alert("注册失败")
+				}
+            });
+
+        });
+
+    }
 
 
 </script>
